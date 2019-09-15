@@ -7,15 +7,15 @@ def main():
     print(skuify('This is a test 1 2 3 !@#$%^&*()_+ extra words for added longness extra words for added longness'))
 
 def welcome():
-        print('Welcome to Amazon FBA Seller SKU builder!')
-        print('v1.0')
-        print('Created by Jackson Hall')
-        print()
-        print()
+    """Print a welcome message at start of program."""
+    print('Welcome to Amazon FBA Seller SKU builder!')
+    print('v1.0 Created by Jackson Hall')
+    print()
+    print()
 
 def skuify(title):
     """Create valid seller SKU from listing title."""
-    
+
     # Make title lowercase alphanumeric (strips special characters)
     title = ''.join([c for c in title if c.isalnum() or c == ' ']).lower()
 
