@@ -3,11 +3,19 @@ MAX_SKU_LENGTH = 40
 def main():
     welcome()
 
-    print(skuify('This is a test 1 2 3 !@#$%^&*()_+'))
-    print(skuify('This is a test 1 2 3 !@#$%^&*()_+ extra words for added longness extra words for added longness'))
+    # Loop while user continues entering titles
+    cont = True
+    while cont:
+        title = input('Enter listing title (press enter to quit): ')
+        if title != '':
+            sku = skuify(title)
+            print(f'Your Seller Sku: {sku}\n')
+        else:
+            cont = False
 
 def welcome():
     """Print a welcome message at start of program."""
+
     print('Welcome to Amazon FBA Seller SKU builder!')
     print('v1.0 Created by Jackson Hall')
     print()
