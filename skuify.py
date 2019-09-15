@@ -1,3 +1,5 @@
+import pyperclip as pc
+
 MAX_SKU_LENGTH = 40
 
 def main():
@@ -6,10 +8,17 @@ def main():
     # Loop while user continues entering titles
     cont = True
     while cont:
+        # Get title
         title = input('Enter listing title (press enter to quit): ')
+
         if title != '':
+            # Skuify the title
             sku = skuify(title)
             print(f'Your Seller Sku: {sku}\n')
+
+            # Copy SKU
+            pc.copy(sku)
+            print('SKU copied!')
         else:
             cont = False
 
