@@ -34,7 +34,7 @@ def skuify(title):
     """Create valid seller SKU from listing title."""
 
     # Make title lowercase alphanumeric (strips special characters)
-    title = ''.join([c for c in title if c.isalnum() or c == ' ']).lower()
+    title = ''.join([c for c in title if c.isalnum() or c == ' ' or c == '-']).lower()
 
     # Break into words
     words = title.split()
