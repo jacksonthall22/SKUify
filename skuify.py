@@ -20,7 +20,8 @@ def main():
             pc.copy(sku)
             print('SKU copied!')
         else:
-            cont = False
+            if not input('Press Enter again to quit: '):
+                cont = False
 
 def welcome():
     """Print a welcome message at start of program."""
