@@ -36,6 +36,7 @@ Use it just like a regular Excel function:
 | 2 | Cra-Z-Art Classic Fineline Markers, 10pk | =skuify(A2) |
 
 ## Todo
+- [ ] Store map from SKU to ASIN & other product data; search existing SKUs and append `...-1`, `...-2`, etc. if SKU already exists for different title
 - [ ] Get approved for Amazon Business APIs
 - [ ] Excel function to get product title from ASIN / ISBN via Amazon Product Search API
 
