@@ -32,6 +32,10 @@ def welcome():
 def skuify(title):
     """ Create a seller SKU from the alphanumeric chars in the Amazon product title. """
 
+    # Replace '-' with spaces and remove duplicate whitespaces
+    title = title.replace('-', ' ')
+    title = ' '.join(title.split())
+
     # Make title lowercase and alphanumeric
     title = ''.join([c for c in title if c.isalnum() or c == ' ']).lower()
 
