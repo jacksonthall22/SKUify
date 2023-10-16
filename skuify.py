@@ -29,7 +29,7 @@ def welcome():
     print()
     print()
 
-def skuify(title):
+def skuify(title: str) -> str:
     """ Create a seller SKU from the alphanumeric chars in the Amazon product title. """
 
     # Replace '-' with spaces and remove duplicate whitespaces
