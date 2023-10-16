@@ -40,9 +40,8 @@ def skuify(title: str) -> str:
     title = ''.join([c for c in title if c.isalnum() or c == ' ']).lower()
 
     # Amazon SKUs are limited to 40 characters.
-    # Just join `words` on '-' and return the first 40 chars
-    words = title.split()
-    return '-'.join(words)[:MAX_SKU_LENGTH].rstrip('-')
+    # Just join words on '-' and return the first 40 chars.
+    return '-'.join(title.split())[:MAX_SKU_LENGTH]
 
 if __name__ == '__main__':
     main()
