@@ -19,7 +19,7 @@ pip install -r requirements.txt
 Running `main.py` executes a continuous loop where you can paste product titles. The skuified result is printed to the screen and copied to the clipboard using [`Pyperclip`][pyperclip].
 
 ## Excel usage
-You can use `pyxll-functions/skuify.py` directly in Excel using [`pyxll`][pyxll]. Read their install instructions, but basically:
+You can use `skuify()` directly in Excel using [`pyxll`][pyxll]. Read their install instructions, but basically:
 
 ```
 pip install pyxll
