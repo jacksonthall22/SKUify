@@ -1,10 +1,45 @@
 # SKUify
 
-### Description
-This simple script takes an Amazon product title as an input string, makes it lowercase, removes 
-any non-alphanumeric characters, cuts off all full words past 40 characters, and converts spaces 
-between the remaining words to dashes. The result is printed to the screen and copied to the clipboard
-using the Pyperclip module, which can be installed with `pip install pyperclip` or downloaded
-[here](https://pypi.org/project/pyperclip/).
+## Overview
+This simple script turns an Amazon product title into a seller SKU. Amazon SKUs must be alphanumeric, lowercase, and 40 characters or less.
 
-<sub><sup>Copyright © 2019 Jackson Hall. All rights reserved.</sup></sub>
+```
+$ title = 'Cra-Z-Art Classic Fineline Markers, 10pk'
+$ skuify(title)
+'cra-z-art-classic-fineline-markers-10pk'
+```
+
+## Install
+```
+git clone https://github.com/jacksonthall22/SKUify.git && cd SKUify
+pip install -r requirements.txt
+```
+
+## Command line usage
+Running `main.py` executes a continuous loop where you can paste product titles. The skuified result is printed to the screen and copied to the clipboard using [`Pyperclip`][pyperclip].
+
+## Excel usage
+You can use `pyxll-functions/skuify.py` directly in Excel using [`pyxll`][pyxll]. Read their install instructions, but basically:
+
+```
+pip install pyxll
+pyxll install
+```
+
+then update pyxll.cfg to include the path to `pyxll-functions/skuify.py` (or move the file into a better location, like the default install location).
+
+Use it just like a regular Excel function:
+
+|   | A                                        | B           |
+|---|------------------------------------------|-------------|
+| 1 | Title                                    | SKU         |
+| 2 | Cra-Z-Art Classic Fineline Markers, 10pk | =skuify(A2) |
+
+## Todo
+- [ ] Get approved for Amazon Business APIs
+- [ ] Excel function to get product title from ASIN / ISBN via Amazon Product Search API
+
+<sub>Copyright © 2019 Jackson Hall. All rights reserved.</sub>
+
+[pyperclip]: https://pypi.org/project/pyperclip/
+[pyxll]: https://www.pyxll.com/
