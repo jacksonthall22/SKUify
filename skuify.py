@@ -6,54 +6,39 @@ def main():
     welcome()
 
     # Loop while user continues entering titles
-    cont = True
-    while cont:
+    while True:
         # Get title
         title = input('Enter listing title (press enter to quit): ')
 
-        if title != '':
+        if title:
             # Skuify the title
             sku = skuify(title)
-            print(f'Your Seller Sku: {sku}\n')
+            print(f'Your Seller SKU: {sku}\n')
 
-            # Copy SKU
             pc.copy(sku)
             print('SKU copied!')
         else:
             if not input('Press Enter again to quit: '):
-                cont = False
+                break
 
 def welcome():
     """Print a welcome message at start of program."""
 
     print('Welcome to Amazon FBA Seller SKU builder!')
-    print('v1.0 Created by Jackson Hall')
+    print('v2.0 Created by Jackson Hall')
     print()
     print()
 
 def skuify(title):
-    """Create valid seller SKU from listing title."""
+    """ Create a seller SKU from the alphanumeric chars in the Amazon product title. """
 
-    # Make title lowercase alphanumeric (strips special characters)
-    title = ''.join([c for c in title if c.isalnum() or c == ' ' or c == '-']).lower()
+    # Make title lowercase and alphanumeric
+    title = ''.join([c for c in title if c.isalnum() or c == ' ']).lower()
 
-    # Break into words
+    # Amazon SKUs are limited to 40 characters.
+    # Just join `words` on '-' and return the first 40 chars
     words = title.split()
-
-    # Loop through words to build SKU
-    sku = ''
-    i = 0
-    cont = True
-    while i < len(words) and cont:
-        # Add next word and dash if SKU will not be longer than 40 chars
-        if len(sku) + len(words[i]) <= MAX_SKU_LENGTH:
-            sku += words[i] + '-'
-        else:
-            cont = False
-
-        i += 1
-
-    return sku.rstrip('-')
+    return '-'.join(words)[:MAX_SKU_LENGTH].rstrip('-')
 
 if __name__ == '__main__':
     main()
