@@ -26,7 +26,7 @@ pip install pyxll
 pyxll install
 ```
 
-then update pyxll.cfg to include the path to `pyxll-functions/skuify.py` (or move the file into a better location, like the default install location).
+then update pyxll.cfg to include the full path to `pyxll-functions.py` (or move the file to a better location, like the default `pyxll`` install location).
 
 Use it just like a regular Excel function:
 

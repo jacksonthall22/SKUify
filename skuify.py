@@ -1,33 +1,5 @@
-import pyperclip as pc
-
 MAX_SKU_LENGTH = 40
 
-def main():
-    welcome()
-
-    # Loop while user continues entering titles
-    while True:
-        # Get title
-        title = input('Enter listing title (press enter to quit): ')
-
-        if title:
-            # Skuify the title
-            sku = skuify(title)
-            print(f'Your Seller SKU: {sku}\n')
-
-            pc.copy(sku)
-            print('SKU copied!')
-        else:
-            if not input('Press Enter again to quit: '):
-                break
-
-def welcome():
-    """Print a welcome message at start of program."""
-
-    print('Welcome to Amazon FBA Seller SKU builder!')
-    print('v2.0 Created by Jackson Hall')
-    print()
-    print()
 
 def skuify(title: str) -> str:
     """ Create a seller SKU from the alphanumeric chars in the Amazon product title. """
@@ -42,6 +14,3 @@ def skuify(title: str) -> str:
     # Amazon SKUs are limited to 40 characters.
     # Just join words on '-' and return the first 40 chars.
     return '-'.join(title.split())[:MAX_SKU_LENGTH]
-
-if __name__ == '__main__':
-    main()
