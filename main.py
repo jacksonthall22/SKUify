@@ -13,9 +13,11 @@ def main():
             # Skuify the title
             sku = skuify(title)
             print(f'Your Seller SKU: {sku}\n')
-
-            pc.copy(sku)
-            print('SKU copied!')
+            try:
+                pc.copy(sku)
+                print('SKU copied!')
+            except pc.PyperclipException:
+                print('SKU could not be copied (PyperclipException)')
         else:
             if not input('Press Enter again to quit: '):
                 break
