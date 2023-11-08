@@ -19,21 +19,18 @@ pip install -r requirements.txt
 Running `main.py` executes a continuous loop where you can paste product titles. The skuified result is printed to the screen and copied to the clipboard using [`Pyperclip`][pyperclip].
 
 ## Excel usage
-You can use `skuify()` directly in Excel using [`pyxll`][pyxll]. Read their install instructions, but basically:
+You can use `skuify()` directly in Excel:
 
-```
-pip install pyxll
-pyxll install
-```
-
-then update pyxll.cfg to include the full path to `pyxll-functions.py` (or move the file to a better location, like the default `pyxll`` install location).
-
-Use it just like a regular Excel function:
+1. Press `alt + f11` in Excel to open the VBA Editor
+1. `Insert` > `Module`
+1. Copy and paste the contents in `excel_vba_script.vba` into the code editor
+1. Save
+1. Now you can use `SKUify` like a regular Excel function:
 
 |   | A                                        | B           |
 |---|------------------------------------------|-------------|
 | 1 | Title                                    | SKU         |
-| 2 | Cra-Z-Art Classic Fineline Markers, 10pk | =skuify(A2) |
+| 2 | Cra-Z-Art Classic Fineline Markers, 10pk | =SKUify(A2) |
 
 ## Todo
 - [ ] Store map from SKU to ASIN & other product data; search existing SKUs and append `...-1`, `...-2`, etc. if SKU already exists for different title
